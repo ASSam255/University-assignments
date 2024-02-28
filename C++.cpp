@@ -243,3 +243,24 @@
  }
  cout <<"S="<<s1;
 }
+
+//Задача 12
+//В данной строке вставить символ c1 после каждого вхождения символа с2.
+ #include <iostream>
+ #include <string>
+ using namespace std;
+ int main(){
+ string str,s;
+ char s1,s2;
+ getline(cin,str);
+ cin >> s1 >> s2;
+ for (int i=0;str.length()>i;i++){
+ if (str[i]==s2){
+ s+=s2;
+ s+=s1;
+ }else{
+ s+=str[i];
+ }
+ }
+ cout<< s<<endl;
+}
