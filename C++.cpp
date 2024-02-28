@@ -128,3 +128,118 @@
  cout << i << " шт. - " << x*i << " руб." << endl;
  return 0;
 }
+
+//Способ 2: с циклом 'While'
+ #include <iostream>
+ using namespace std;
+ int main() {
+ double x;
+ cout <<"Введите цену товара:"<< "\n";
+ cin >> x;
+ int i = 10;
+ while (i<=100) {
+ cout << i << " шт. - " << x*i << " руб." << endl;
+ i+=10;
+ }
+ return 0; 
+}
+//Способ 3: 'Do While'
+  
+ #include <iostream>
+ using namespace std;
+ int main() {
+ double x;
+ cout <<"Введите цену товара"<<"\n";
+ cin >> x;
+ int i = 10;
+ do {
+ cout << i << " шт. - " << x*i << " руб." << endl;
+ i+=10;
+ }
+ while (i<=100);
+ return 0;
+}
+//Задача 8
+// Вывести на экран числа в виде следующей таблицы:
+// 7
+// 6 6
+// 5 5 5
+// 4 4 4 4
+// 3 3 3 3 3
+
+ #include <iostream>
+ using namespace std;
+ int main() {
+ int s,c;
+ cin>>s>>c;//что бы построить таблицу из любых чисел s=кол-во строк
+ for(int i=1;i<=s;i++,cout <<endl)
+ for (int j=1;j<=i;j+=1)
+ cout <<c-i<<"\t";
+ return 0;
+}
+
+// Задача 9 
+//Постройте таблицу значений функции y=f(x) для Х€[а,Ь] с шагом h. Если в некоторой точке х функция не
+//определена, то выведите на экран сообщение об этом.
+
+ #include <iostream>
+ #include <cmath>
+ using namespace std;
+ void f( double x) {
+ if ( (x>1)|| (x<-1))
+ cout << (sqrt(x*x-1));
+ else
+ cout<<"функция не определена" ;
+ }
+ int main()
+ {
+ double h, a, b ;
+ cin >> a >> b >> h ;
+ cout << "a\t \t \t y=f(x)\t\n" ;
+ while (a<=b) {
+ cout <<fixed<< a <<"\t \t" ;
+ f(a);
+ cout << endl;
+ a+=h;
+}
+
+//Задача 10
+// Написать программу, вычисляющую первые n элементов заданной последовательности:
+ #include <iostream>
+ #include <iomanip>
+ #include <cmath>
+ using namespace std;
+ int main() {
+ int n;
+ double b,b1=1;
+ cin >>n;
+ if (n>0){
+ cout << "b1=1"<<endl;
+ for (int i=2;i<=n;i++){
+ b=0.25*((3*b1)+1/(3*b1));
+ cout << fixed<<setprecision(8);
+ cout<< "b"<<i<<"="<<b<<endl;
+ b1=b;
+ }
+ }
+ return 0;
+}
+//Задача 11
+// Для заданного натурального n и действительного x
+//подсчитать следующие суммы:
+//S=1^3-2^3+3^3...+(-1)^(n-1)*n^3
+ #include <iostream>
+ #include <cmath>
+ using namespace std;
+ int main (){
+ int n,a=1,s1=1,a1=1;
+ cin>>n;
+ int i=2;
+ while (i<=n){
+ a=pow(i, 3);
+ a1=a*(i%2==0?-1:1);
+ s1+=a1;
+ i++;
+ }
+ cout <<"S="<<s1;
+}
